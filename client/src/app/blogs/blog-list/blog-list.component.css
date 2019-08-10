@@ -1,0 +1,11 @@
+.example-card {
+    max-width: 300px;
+    /* max-height: 100px; */
+    margin-bottom: 50px;
+  }
+  
+  .example-header-image {
+    background-image: url('http://myzeroone.com/myzeroone/18061-wallpapers-hacker_33309.jpg');
+    background-size: cover;
+  }
+  

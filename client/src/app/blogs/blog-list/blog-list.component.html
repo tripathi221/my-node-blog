@@ -1,0 +1,55 @@
+<button class="btn btn-primary" (click)="ifCreateBlog = !ifCreateBlog">Create Blog</button>
+
+<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let blog of blogList">
+    <!-- <app-card fxFlex="0 1 calc(33.3% - 32px)"></app-card> -->
+    <mat-card fxFlex="0 1 calc(33.3% - 32px)" class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{blog.blogTitle}}</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://myzeroone.com/myzeroone/18061-wallpapers-hacker_33309.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    {{blog.blogDescription}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+        
+  </ng-container>
+</div>
+
+<div class="card" *ngIf="ifCreateBlog" #createBlog>
+    <div class="card-body">
+      <form [formGroup]="blogForm" (ngSubmit)="createBlog()" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Blog Title</label>
+          <input type="text" class="form-control" formControlName="blogTitle" #blogTitle />
+        </div>
+        <div *ngIf="blogForm.controls['blogTitle'].invalid && (blogForm.controls['blogTitle'].dirty || blogForm.controls['blogTitle'].touched)" class="alert alert-danger">
+          <div *ngIf="blogForm.controls['blogTitle'].errors.required">
+            Blog Title is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Blog Description </label>
+          <input type="text" class="form-control" formControlName="blogDescription" #blogDescription />
+        </div>
+        <div *ngIf="blogForm.controls['blogDescription'].invalid && (blogForm.controls['blogDescription'].dirty || blogForm.controls['blogDescription'].touched)" class="alert alert-danger">
+          <div *ngIf="blogForm.controls['blogDescription'].errors.required">
+            Blog Description is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit"
+          [disabled]="blogForm.pristine || blogForm.invalid" 
+          class="btn btn-primary">Submit Blog</button>
+        </div>
+      </form>
+    </div>
+  </div>
