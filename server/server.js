@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser')
 const blogRoutes = require('./routes/blog.route.js');

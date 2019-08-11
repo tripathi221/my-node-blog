@@ -27,7 +27,7 @@ export class CreateBlogComponent implements OnInit {
 
   createBlog() {
     this.blogService.createBlog(this.blogForm.value.blogTitle, this.blogForm.value.blogDescription)
-    .subscribe((data) => {debugger
+    .subscribe((data) => {
       this.router.navigate(['/blogs']);
     });
   };
