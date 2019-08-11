@@ -9,7 +9,7 @@ import { BlogService } from '../../blog.service';
 })
 export class BlogListComponent implements OnInit {
 
-  private blogList: Array<Blog> = [];
+  blogList: Array<Blog> = [];
 
   constructor(private blogService: BlogService) {}
 

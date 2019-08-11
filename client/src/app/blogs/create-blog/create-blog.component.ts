@@ -10,7 +10,7 @@ import { BlogService } from '../../blog.service';
 })
 export class CreateBlogComponent implements OnInit {
 
-  private blogList: Array<Blog> = [];
+  blogList: Array<Blog> = [];
   blogForm: FormGroup;
   constructor(private fb: FormBuilder, private blogService: BlogService) {
     this.createForm();
