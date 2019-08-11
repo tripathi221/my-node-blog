@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Blog } from 'src/app/models/blog';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { BlogService } from '../../blog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-blog',
@@ -9,10 +10,9 @@ import { BlogService } from '../../blog.service';
   styleUrls: ['./create-blog.component.css']
 })
 export class CreateBlogComponent implements OnInit {
-
-  blogList: Array<Blog> = [];
   blogForm: FormGroup;
-  constructor(private fb: FormBuilder, private blogService: BlogService) {
+
+  constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router) {
     this.createForm();
   }
 
@@ -23,20 +23,12 @@ export class CreateBlogComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.getBlogs();
-  }
+  ngOnInit() {}
 
   createBlog() {
     this.blogService.createBlog(this.blogForm.value.blogTitle, this.blogForm.value.blogDescription)
-    .subscribe((data) => {
-      this.getBlogs();
-    });
-  };
-
-  getBlogs() {
-    this.blogService.getBlogs().subscribe((data: Blog[]) => {
-      this.blogList = data;
+    .subscribe((data) => {debugger
+      this.router.navigate(['/blogs']);
     });
   };
 }

@@ -6,9 +6,9 @@
     <h1>AwesomeBlog</h1>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Home </a>
-      <a mat-button [routerLink]="'/create-account'"> Register/Login </a>
-      <a mat-button (click)="bloglist=!bloglist" lable="bloglist"><mat-icon>favorite</mat-icon> Blogs </a>
+      <a mat-button [routerLink]="'/home'"> Home </a>
+      <!-- <a mat-button [routerLink]="'/create-account'"> Register/Login </a> -->
+      <a mat-button [routerLink]="'/blogs'"><mat-icon>favorite</mat-icon> Blogs </a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -26,8 +26,6 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="height: 88vh;">
-      <app-create-blog *ngIf="!bloglist"></app-create-blog>
-      <app-blog-list *ngIf="bloglist"></app-blog-list>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
