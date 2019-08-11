@@ -26,6 +26,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="height: 88vh;">
+      <app-create-blog *ngIf="!bloglist"></app-create-blog>
       <app-blog-list *ngIf="bloglist"></app-blog-list>
       <router-outlet></router-outlet>
     </div>

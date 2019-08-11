@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BlogService {
 
-  uri = 'http://localhost:3000/api';
+  uri ='/api'
 
   constructor(private http: HttpClient) { }
 

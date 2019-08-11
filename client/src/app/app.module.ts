@@ -10,11 +10,13 @@ import { MaterialModule } from './material.module';
 import { BlogListComponent } from './blogs/blog-list/blog-list.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BlogService } from './blog.service';
+import { CreateBlogComponent } from './blogs/create-blog/create-blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogListComponent,
+    CreateBlogComponent,
   ],
   imports: [
     BrowserModule,
